@@ -37,3 +37,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - upload: mainfests
+      artifact: manifests
+
+
