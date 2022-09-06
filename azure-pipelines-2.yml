@@ -6,6 +6,9 @@
 trigger:
 - master
 
+resources:
+- repo: self
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
