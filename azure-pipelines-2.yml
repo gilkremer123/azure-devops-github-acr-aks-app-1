@@ -8,10 +8,17 @@ trigger:
 
 resources:
 - repo: self
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      ls
+stages:
+- stage: stage1
+  displayName: Kubectl in BASH
+  jobs:
+  - job: job1
+    displayName: displayname1
+    pool: Default
+    steps:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          ls
