@@ -28,7 +28,7 @@ stages:
 
     
 - stage: deploy_on_AKS
-  displayName: Stage-Deploy_on_AKS
+  displayName: Stage_Deploy_on_AKS
   jobs:  
   - job: Job-deploy_on_AKS
     displayName: Build and push
