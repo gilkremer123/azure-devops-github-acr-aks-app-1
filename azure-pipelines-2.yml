@@ -9,10 +9,9 @@ trigger:
 resources:
 - repo: self
 stages:
-- stage: stage1
-  displayName: Kubectl in BASH
-  jobs:
-  
+- stage: uild_and_push
+  displayName: Stage-Build_and_push
+  jobs:  
   - job: Build_and_push
     displayName: Build and push
     pool:
@@ -27,9 +26,13 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: '$(Build.BuildId)' 
 
-  - job: Deploy_on_aks
-    displayName: Deploy on AKS
-    pool: Default
+    
+- stage: deploy on AKS
+  displayName: Stage-Deploy on AKS
+  jobs:  
+  - job: Job-deploy_on_AKS
+    displayName: Build and push
+    pool: Defualt
     steps:
     - task: Bash@3
       displayName: Deploy on aks
@@ -40,4 +43,3 @@ stages:
           ls
           kubectl get pods
           kubectl apply -f ./kube-manifests
-    
