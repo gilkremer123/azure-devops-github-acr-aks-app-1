@@ -32,7 +32,7 @@ stages:
   jobs:  
   - job: Job_deploy_on_AKS
     displayName: Build and push
-    pool: Defualt
+    pool: Default
     steps:
     - task: Bash@3
       displayName: Deploy on aks
