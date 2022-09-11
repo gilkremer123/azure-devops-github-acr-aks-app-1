@@ -12,9 +12,11 @@ stages:
 - stage: stage1
   displayName: Kubectl in BASH
   jobs:
-  - job: job1
+  
+  - job: Build_and_push
     displayName: displayname1
-    pool: Default
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -23,9 +25,15 @@ stages:
         repository: 'app1/gil-nginx'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: '$(Build.BuildId)'
-    
+        tags: 'v2'
+      #  tags: '$(Build.BuildId)' 
+
+  - job: Deploy_on_aks
+    displayName: displayname1
+    pool: Default
+    steps:
     - task: Bash@3
+      displayName: Deploy on aks
       inputs:
         targetType: 'inline'
         script: |
@@ -33,3 +41,4 @@ stages:
           ls
           kubectl get pods
           kubectl apply -f ./kube-manifests
+    
