@@ -14,7 +14,7 @@ stages:
   jobs:
   
   - job: Build_and_push
-    displayName: displayname1
+    displayName: Build and push
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -25,11 +25,10 @@ stages:
         repository: 'app1/gil-nginx'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'v2'
-      #  tags: '$(Build.BuildId)' 
+        tags: '$(Build.BuildId)' 
 
   - job: Deploy_on_aks
-    displayName: displayname1
+    displayName: Deploy on AKS
     pool: Default
     steps:
     - task: Bash@3
