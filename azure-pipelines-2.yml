@@ -24,7 +24,7 @@ stages:
         repository: 'app1/gil-nginx'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: '$(Build.BuildId)' 
+        tags: 'latest' 
 
     
 - stage: deploy_on_AKS
