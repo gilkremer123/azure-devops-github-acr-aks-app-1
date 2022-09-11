@@ -9,7 +9,7 @@ trigger:
 resources:
 - repo: self
 stages:
-- stage: uild_and_push
+- stage: Build_and_push
   displayName: Stage-Build_and_push
   jobs:  
   - job: Build_and_push
@@ -27,8 +27,8 @@ stages:
         tags: '$(Build.BuildId)' 
 
     
-- stage: deploy on AKS
-  displayName: Stage-Deploy on AKS
+- stage: deploy_on_AKS
+  displayName: Stage-Deploy_on_AKS
   jobs:  
   - job: Job-deploy_on_AKS
     displayName: Build and push
