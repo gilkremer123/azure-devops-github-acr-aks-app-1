@@ -29,6 +29,7 @@ stages:
     
 - stage: deploy_on_AKS
   displayName: Stage_Deploy_on_AKS
+  #dependsOn: Build_and_push
   jobs:  
   - job: Job_deploy_on_AKS
     displayName: Build and push
