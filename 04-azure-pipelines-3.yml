@@ -22,7 +22,7 @@ stages:
         repository: 'manual-aksdevopsacr-svc'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: $(Build.SourceVersion
+        tags: $(Build.SourceVersion)
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)/kube-manifests'
