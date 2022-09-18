@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: acrtestgil.azurecr.io/app1/gil-nginx:latest
+          image: acrtestgil.azurecr.io/manual-aksdevopsacr-svc:061c0cb3eb5ea92b425ed9295962a35a64cf99fe
           ports:
             - containerPort: 80
 ---
